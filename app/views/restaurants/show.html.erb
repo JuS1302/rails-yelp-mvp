@@ -1,1 +1,18 @@
-<h1>Restaurant page de détail</h1>
+<div class="container">
+<h1>Détails</h1>
+  <h2>Nom du restaurant : <%= @restaurant.name %></h2>
+    <ul>
+      <li> Catégorie : <%= @restaurant.category.capitalize %> </li>
+      <li> Adresse : <%= @restaurant.address %> </li>
+      <li> Numéro : <%= @restaurant.phone_number %> </li>
+    </ul>
+
+    <h3><% @restaurant.reviews.each do |review| %></h3>
+    <h3>Avis</h3>
+    <p><%= review.content %> </p>
+     <p><%= review.rating %> </p>
+    <% end %>
+
+     <div><%=link_to "Home", restaurants_path%></div>
+     <div><%=link_to "Ajouter un avis", new_restaurant_review_path(@restaurant)%></div>
+</div>
